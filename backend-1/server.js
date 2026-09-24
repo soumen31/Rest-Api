@@ -1,6 +1,7 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const connectDB = require('./config/db.mongo.js');
+const connectDB = require('./config/db.mongo');
+const userRoutes = require('./routes/User.route.js');
+
 
 require('dotenv').config();
 
@@ -18,6 +19,8 @@ app.get('/api/health', (req, res) => {
             mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
     });
 });
+
+app.use('/api', userRoutes);
 
 const PORT = process.env.PORT || 8000;
 
