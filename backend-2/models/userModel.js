@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
     this.updatedAt = Date.now();
-    next();
+    // next();
 });
 
 const User = mongoose.model('User', userSchema);

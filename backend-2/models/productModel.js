@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema({
 })
 productSchema.pre("save", async function (next) {
     this.updatedAt = Date.now();
-    next();
+    //next();
 });
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;
